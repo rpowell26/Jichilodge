@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Río Dorado Lodge | Fly Fishing Bolivia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<style>
+:root{
+  --neon:#70EF2F; --char:#2E2F2F; --ink:#1E1F1F; --camo:#3A5B3F; --orange:#EF5D39; --gold:#C3B95F;
+  --cream:#F6F4EF; --stone:#ECEBE7; --body:#222; --muted:#6b6d6b;
+  --display:'Anton','Oswald','Bebas Neue',Impact,sans-serif;
+  --sans:'Helvetica Neue',Helvetica,Arial,'Roboto',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--body);background:#fff;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.scene{background-size:cover;background-position:center;background-color:#4a5a43}
+
+/* announcement */
+.announce{background:var(--orange);color:var(--ink);text-align:center;font-size:11px;font-weight:700;letter-spacing:.6px;padding:12px 40px;position:relative;text-transform:uppercase}
+.announce a{text-decoration:underline}
+.announce button{position:absolute;right:52px;top:50%;transform:translateY(-50%);background:none;border:0;font-size:18px;cursor:pointer;color:var(--ink)}
+
+/* header */
+header{position:sticky;top:0;z-index:50}
+.util{background:var(--ink);display:flex;justify-content:flex-end;align-items:center;gap:26px;padding:0 48px;height:26px;font-size:10.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--neon)}
+.util span{display:flex;align-items:center;gap:7px}
+.util .sep{color:#777}
+.util .book{background:var(--neon);color:var(--ink);height:26px;padding:0 20px;display:flex;align-items:center;gap:7px}
+.util svg{width:12px;height:12px;fill:currentColor}
+.mainbar{background:var(--ink);height:72px;display:flex;align-items:stretch;padding-left:480px;padding-right:48px;border-bottom:1px solid #000}
+.mainbar nav{display:flex;border-left:1px solid #444}
+.mainbar nav a{color:#fff;font-weight:700;font-size:13px;letter-spacing:2.6px;text-transform:uppercase;display:flex;align-items:center;padding:0 26px;border-right:1px solid #444}
+.mainbar nav a:hover{color:var(--neon)}
+.search{flex:0 0 534px;display:flex;align-items:center;padding:0 22px}
+.search input{flex:1;height:36px;border:0;padding:0 14px;font-size:14px;font-family:var(--sans)}
+.search button{width:36px;height:36px;border:0;background:var(--neon);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.search button svg{width:16px;height:16px}
+.menu{margin-left:auto;display:flex;align-items:center;gap:12px;color:#fff;font-weight:700;font-size:13px;letter-spacing:2.6px;border-left:1px solid #444;padding-left:30px;text-transform:uppercase}
+.menu i{display:block;width:20px;height:2px;background:#fff;box-shadow:0 6px 0 #fff,0 -6px 0 #fff}
+.logo{position:absolute;left:52px;top:34px;width:190px;z-index:60;display:block}
+.plan{position:absolute;right:48px;top:98px;z-index:55;background:#f2f2f2;color:var(--ink);font-weight:700;font-size:14px;letter-spacing:3px;text-transform:uppercase;padding:20px 34px;border-radius:0 0 8px 8px;box-shadow:0 4px 14px rgba(0,0,0,.12);display:flex;align-items:center;gap:10px}
+.plan svg{width:16px;height:16px}
+
+/* hero */
+.hero{position:relative;height:470px;overflow:hidden;color:#fff}
+.hero .scene{position:absolute;inset:0}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.45),rgba(0,0,0,.05) 60%)}
+.hero-inner{position:relative;z-index:2;padding:64px 0 0 106px;max-width:820px}
+.hero h1{font-family:var(--display);font-weight:400;font-size:74px;line-height:1.02;color:var(--neon);text-transform:uppercase;letter-spacing:-1.2px;transform:scaleX(.9);transform-origin:left}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:var(--ink);font-weight:700;font-size:13px;letter-spacing:3px;text-transform:uppercase;padding:17px 34px;border:0;cursor:pointer}
+.btn:hover{background:var(--neon)}
+.hero .btn{margin-top:30px}
+.btn .dot{width:14px;height:14px;border-radius:50%;background:var(--ink);display:inline-flex;align-items:center;justify-content:center}
+.btn .dot::after{content:"";border-left:5px solid var(--orange);border-top:3px solid transparent;border-bottom:3px solid transparent;margin-left:1px}
+
+/* sections */
+section{position:relative}
+.sec-title{font-family:var(--display);font-weight:400;font-size:48px;text-transform:uppercase;text-align:center;color:var(--ink);letter-spacing:-.3px;line-height:1.05}
+.sec-title::after{content:"";display:block;width:44px;height:4px;background:var(--neon);margin:18px auto 0}
+.intro{max-width:600px;margin:30px auto 0;text-align:center;font-size:15px;line-height:1.75;color:#333}
+.pad{padding:110px 0 80px}
+
+/* carousel */
+.carousel{margin-top:44px;padding-left:68px;overflow:hidden}
+.track{display:flex;gap:30px;transition:transform .5s ease;padding:4px 0 26px}
+.card{flex:0 0 409px;background:#fff;box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.card .scene{height:350px}
+.card h3{font-size:19px;font-weight:700;text-align:center;padding:38px 16px 40px;color:var(--ink)}
+.card p.sub{font-size:13px;color:var(--muted);text-align:center;margin-top:-30px;padding-bottom:36px}
+.ctrl{display:flex;align-items:center;gap:20px;margin:30px 68px 0}
+.bar{flex:1;height:1px;background:#555;position:relative}
+.bar b{position:absolute;left:0;top:-1px;height:3px;width:25%;background:var(--neon);transition:left .5s ease}
+.arrows{display:flex;gap:16px}
+.arrows button{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--ink);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.arrows button:first-child{opacity:.4}
+.arrows svg{width:14px;height:14px}
+
+.band{height:420px;background-color:transparent!important;margin-top:-10px}
+
+/* wish list */
+.wish{background:var(--cream)}
+.tabsrow{display:flex;align-items:center;gap:22px;margin:56px 68px 0}
+.tab{font-weight:700;font-size:15px;letter-spacing:.3px;text-transform:uppercase;padding:16px 28px;border:1.5px solid transparent;cursor:pointer;background:none;font-family:var(--sans)}
+.tab.on{border-color:var(--ink)}
+.tabsrow .btn{margin-left:auto}
+.wish .carousel{margin-top:32px}
+.wish .card{background:#fff}
+.wish .card .scene{height:475px}
+.wish .card h3{padding:34px 16px 18px}
+.wish .card p.sub{margin-top:0}
+
+/* locations */
+.locs{background:var(--stone)}
+.locgrid{display:grid;grid-template-columns:repeat(2,502px);gap:30px;justify-content:center;margin-top:52px}
+.loc{background:#fff;box-shadow:0 3px 16px rgba(0,0,0,.1)}
+.loc .scene{height:300px}
+.loc div.t{padding:24px 26px 32px}
+.loc h3{font-size:19px;font-weight:700;color:var(--ink)}
+.loc a{display:block;margin-top:8px;color:var(--orange);font-weight:700;font-size:13.5px}
+
+/* team */
+.team{display:flex;justify-content:center;gap:24px;margin-top:50px;flex-wrap:wrap}
+.guide{width:236px;text-align:center}
+.guide .av{width:128px;height:128px;border-radius:50%;margin:0 auto;border:2.5px solid var(--gold);padding:4px;background:#fff}
+.guide .av div{width:100%;height:100%;border-radius:50%}
+.guide h4{font-size:22px;font-weight:700;margin-top:16px;color:var(--ink)}
+.guide p{font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;margin-top:6px;line-height:1.45;color:#333}
+.center{text-align:center;margin-top:52px}
+
+/* conservation */
+.cons{height:660px;color:#fff;display:flex;align-items:center;margin-top:20px}
+.cons .scene{position:absolute;inset:0;clip-path:polygon(0.0% 12.19%,0.5% 12.37%,1.0% 12.27%,1.5% 12.00%,2.0% 11.69%,2.5% 11.44%,3.0% 11.33%,3.5% 11.39%,4.0% 11.60%,4.5% 11.86%,5.0% 12.09%,5.5% 12.19%,6.0% 12.09%,6.5% 11.76%,7.0% 11.23%,7.5% 10.60%,8.0% 9.98%,8.5% 9.50%,9.0% 9.30%,9.5% 9.43%,10.0% 9.91%,10.5% 10.70%,11.0% 11.69%,11.5% 12.74%,12.0% 13.71%,12.5% 14.45%,13.0% 14.90%,13.5% 15.03%,14.0% 14.88%,14.5% 14.52%,15.0% 14.07%,15.5% 13.64%,16.0% 13.31%,16.5% 13.11%,17.0% 13.03%,17.5% 13.00%,18.0% 12.91%,18.5% 12.68%,19.0% 12.20%,19.5% 11.45%,20.0% 10.43%,20.5% 9.21%,21.0% 7.93%,21.5% 6.73%,22.0% 5.74%,22.5% 5.08%,23.0% 4.80%,23.5% 4.89%,24.0% 5.28%,24.5% 5.86%,25.0% 6.48%,25.5% 7.02%,26.0% 7.38%,26.5% 7.52%,27.0% 7.44%,27.5% 7.22%,28.0% 6.94%,28.5% 6.71%,29.0% 6.62%,29.5% 6.70%,30.0% 6.95%,30.5% 7.30%,31.0% 7.65%,31.5% 7.87%,32.0% 7.87%,32.5% 7.57%,33.0% 6.97%,33.5% 6.10%,34.0% 5.07%,34.5% 4.02%,35.0% 3.10%,35.5% 2.45%,36.0% 2.15%,36.5% 2.23%,37.0% 2.65%,37.5% 3.32%,38.0% 4.12%,38.5% 4.93%,39.0% 5.63%,39.5% 6.17%,40.0% 6.55%,40.5% 6.81%,41.0% 7.04%,41.5% 7.34%,42.0% 7.78%,42.5% 8.43%,43.0% 9.28%,43.5% 10.28%,44.0% 11.31%,44.5% 12.25%,45.0% 12.97%,45.5% 13.37%,46.0% 13.39%,46.5% 13.05%,47.0% 12.42%,47.5% 11.62%,48.0% 10.81%,48.5% 10.12%,49.0% 9.66%,49.5% 9.49%,50.0% 9.61%,50.5% 9.95%,51.0% 10.42%,51.5% 10.90%,52.0% 11.29%,52.5% 11.52%,53.0% 11.59%,53.5% 11.52%,54.0% 11.41%,54.5% 11.36%,55.0% 11.46%,55.5% 11.79%,56.0% 12.37%,56.5% 13.15%,57.0% 14.04%,57.5% 14.90%,58.0% 15.61%,58.5% 16.02%,59.0% 16.05%,59.5% 15.68%,60.0% 14.96%,60.5% 13.97%,61.0% 12.84%,61.5% 11.74%,62.0% 10.76%,62.5% 10.00%,63.0% 9.47%,63.5% 9.15%,64.0% 8.95%,64.5% 8.77%,65.0% 8.52%,65.5% 8.14%,66.0% 7.59%,66.5% 6.92%,67.0% 6.21%,67.5% 5.58%,68.0% 5.13%,68.5% 4.96%,69.0% 5.13%,69.5% 5.62%,70.0% 6.35%,70.5% 7.21%,71.0% 8.04%,71.5% 8.71%,72.0% 9.10%,72.5% 9.14%,73.0% 8.85%,73.5% 8.28%,74.0% 7.55%,74.5% 6.78%,75.0% 6.08%,75.5% 5.56%,76.0% 5.25%,76.5% 5.12%,77.0% 5.12%,77.5% 5.15%,78.0% 5.10%,78.5% 4.91%,79.0% 4.55%,79.5% 4.03%,80.0% 3.43%,80.5% 2.87%,81.0% 2.47%,81.5% 2.37%,82.0% 2.62%,82.5% 3.27%,83.0% 4.25%,83.5% 5.47%,84.0% 6.79%,84.5% 8.06%,85.0% 9.14%,85.5% 9.94%,86.0% 10.44%,86.5% 10.66%,87.0% 10.67%,87.5% 10.58%,88.0% 10.52%,88.5% 10.56%,89.0% 10.75%,89.5% 11.07%,90.0% 11.48%,90.5% 11.87%,91.0% 12.14%,91.5% 12.19%,92.0% 11.98%,92.5% 11.51%,93.0% 10.85%,93.5% 10.10%,94.0% 9.41%,94.5% 8.91%,95.0% 8.72%,95.5% 8.88%,96.0% 9.40%,96.5% 10.21%,97.0% 11.20%,97.5% 12.21%,98.0% 13.11%,98.5% 13.80%,99.0% 14.22%,99.5% 14.38%,100.0% 14.33%,100% 100%,0 100%)}
+.cons::after{content:"";position:absolute;inset:0;clip-path:polygon(0.0% 12.19%,0.5% 12.37%,1.0% 12.27%,1.5% 12.00%,2.0% 11.69%,2.5% 11.44%,3.0% 11.33%,3.5% 11.39%,4.0% 11.60%,4.5% 11.86%,5.0% 12.09%,5.5% 12.19%,6.0% 12.09%,6.5% 11.76%,7.0% 11.23%,7.5% 10.60%,8.0% 9.98%,8.5% 9.50%,9.0% 9.30%,9.5% 9.43%,10.0% 9.91%,10.5% 10.70%,11.0% 11.69%,11.5% 12.74%,12.0% 13.71%,12.5% 14.45%,13.0% 14.90%,13.5% 15.03%,14.0% 14.88%,14.5% 14.52%,15.0% 14.07%,15.5% 13.64%,16.0% 13.31%,16.5% 13.11%,17.0% 13.03%,17.5% 13.00%,18.0% 12.91%,18.5% 12.68%,19.0% 12.20%,19.5% 11.45%,20.0% 10.43%,20.5% 9.21%,21.0% 7.93%,21.5% 6.73%,22.0% 5.74%,22.5% 5.08%,23.0% 4.80%,23.5% 4.89%,24.0% 5.28%,24.5% 5.86%,25.0% 6.48%,25.5% 7.02%,26.0% 7.38%,26.5% 7.52%,27.0% 7.44%,27.5% 7.22%,28.0% 6.94%,28.5% 6.71%,29.0% 6.62%,29.5% 6.70%,30.0% 6.95%,30.5% 7.30%,31.0% 7.65%,31.5% 7.87%,32.0% 7.87%,32.5% 7.57%,33.0% 6.97%,33.5% 6.10%,34.0% 5.07%,34.5% 4.02%,35.0% 3.10%,35.5% 2.45%,36.0% 2.15%,36.5% 2.23%,37.0% 2.65%,37.5% 3.32%,38.0% 4.12%,38.5% 4.93%,39.0% 5.63%,39.5% 6.17%,40.0% 6.55%,40.5% 6.81%,41.0% 7.04%,41.5% 7.34%,42.0% 7.78%,42.5% 8.43%,43.0% 9.28%,43.5% 10.28%,44.0% 11.31%,44.5% 12.25%,45.0% 12.97%,45.5% 13.37%,46.0% 13.39%,46.5% 13.05%,47.0% 12.42%,47.5% 11.62%,48.0% 10.81%,48.5% 10.12%,49.0% 9.66%,49.5% 9.49%,50.0% 9.61%,50.5% 9.95%,51.0% 10.42%,51.5% 10.90%,52.0% 11.29%,52.5% 11.52%,53.0% 11.59%,53.5% 11.52%,54.0% 11.41%,54.5% 11.36%,55.0% 11.46%,55.5% 11.79%,56.0% 12.37%,56.5% 13.15%,57.0% 14.04%,57.5% 14.90%,58.0% 15.61%,58.5% 16.02%,59.0% 16.05%,59.5% 15.68%,60.0% 14.96%,60.5% 13.97%,61.0% 12.84%,61.5% 11.74%,62.0% 10.76%,62.5% 10.00%,63.0% 9.47%,63.5% 9.15%,64.0% 8.95%,64.5% 8.77%,65.0% 8.52%,65.5% 8.14%,66.0% 7.59%,66.5% 6.92%,67.0% 6.21%,67.5% 5.58%,68.0% 5.13%,68.5% 4.96%,69.0% 5.13%,69.5% 5.62%,70.0% 6.35%,70.5% 7.21%,71.0% 8.04%,71.5% 8.71%,72.0% 9.10%,72.5% 9.14%,73.0% 8.85%,73.5% 8.28%,74.0% 7.55%,74.5% 6.78%,75.0% 6.08%,75.5% 5.56%,76.0% 5.25%,76.5% 5.12%,77.0% 5.12%,77.5% 5.15%,78.0% 5.10%,78.5% 4.91%,79.0% 4.55%,79.5% 4.03%,80.0% 3.43%,80.5% 2.87%,81.0% 2.47%,81.5% 2.37%,82.0% 2.62%,82.5% 3.27%,83.0% 4.25%,83.5% 5.47%,84.0% 6.79%,84.5% 8.06%,85.0% 9.14%,85.5% 9.94%,86.0% 10.44%,86.5% 10.66%,87.0% 10.67%,87.5% 10.58%,88.0% 10.52%,88.5% 10.56%,89.0% 10.75%,89.5% 11.07%,90.0% 11.48%,90.5% 11.87%,91.0% 12.14%,91.5% 12.19%,92.0% 11.98%,92.5% 11.51%,93.0% 10.85%,93.5% 10.10%,94.0% 9.41%,94.5% 8.91%,95.0% 8.72%,95.5% 8.88%,96.0% 9.40%,96.5% 10.21%,97.0% 11.20%,97.5% 12.21%,98.0% 13.11%,98.5% 13.80%,99.0% 14.22%,99.5% 14.38%,100.0% 14.33%,100% 100%,0 100%);background:linear-gradient(90deg,rgba(0,0,0,.4),transparent 60%)}
+.cons .inner{position:relative;z-index:2;padding-left:232px;max-width:680px;margin-top:80px}
+.cons .kick{font-family:var(--display);font-size:20px;text-transform:uppercase;letter-spacing:.4px;color:#fff}
+.cons h2{font-family:var(--display);font-weight:400;font-size:40px;line-height:1.1;letter-spacing:-.3px;text-transform:uppercase;margin-top:8px}
+.cons p{font-size:15px;line-height:1.75;margin-top:22px;font-weight:500}
+.cons .btn{margin-top:26px}
+
+/* films */
+.films .stage{position:relative;height:640px;margin:60px auto 0;max-width:1304px}
+.film{position:absolute;top:46px;width:412px;background:#fff;box-shadow:0 3px 16px rgba(0,0,0,.1)}
+.film .scene{height:440px}
+.film h3{font-size:19px;font-weight:700;text-align:center;padding:26px 0 30px;color:var(--ink)}
+.film.l{left:0}.film.r{right:0}
+.film.c{left:50%;transform:translateX(-50%);top:0;width:490px;z-index:3}
+.film.c .scene{height:520px;position:relative}
+.film.c h3{font-size:24px;padding:42px 0 46px}
+.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:120px;height:120px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center}
+.play::after{content:"";border-left:36px solid #fff;border-top:22px solid transparent;border-bottom:22px solid transparent;margin-left:9px}
+.films .ctrl{margin-top:40px}
+
+/* cta */
+.cta{background-color:#E9E8E4;padding:120px 0 70px;position:relative;overflow:hidden}
+.torn{position:absolute;left:0;top:-1px;width:100%;height:40px;display:block}
+
+.stamp{position:absolute;width:230px;opacity:.13}
+.cta h2{font-family:var(--display);font-weight:400;font-size:42px;line-height:1.08;letter-spacing:-.2px;text-transform:uppercase;text-align:center;color:var(--ink);position:relative}
+.cta .row{display:flex;gap:20px;justify-content:center;margin-top:40px;position:relative}
+.ghost{border:1.5px solid #8a8c8a;padding:16px 34px;font-weight:700;font-size:13px;letter-spacing:3px;text-transform:uppercase;background:none;cursor:pointer;color:#fff;font-family:var(--sans)}
+.ghost:hover{border-color:var(--neon);color:var(--neon)}
+.fcta{display:flex;gap:20px;justify-content:center;padding-top:44px}
+.frule{height:1px;background:rgba(255,255,255,.12);margin:0}
+
+/* footer */
+footer{background:var(--char);color:#fff;position:relative;overflow:hidden}
+.fcontact{text-align:center;padding:26px 0 55px}
+.fcontact .ph{color:var(--neon);font-size:11px;font-weight:700;letter-spacing:2.6px}
+.social{display:flex;gap:14px;justify-content:center;margin-top:18px}
+.social svg{width:17px;height:17px;fill:#fff}
+.fcols{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;padding:55px 68px 50px;position:relative;z-index:2}
+.fcols h5{font-family:var(--display);font-weight:400;font-size:17px;color:var(--neon);text-transform:uppercase;letter-spacing:.3px;margin-bottom:16px}
+.fcols a{display:block;font-size:12.5px;font-weight:700;line-height:1.35;margin-bottom:8.5px;color:#f1f1f1}
+.fcols a:hover{color:var(--orange)}
+footer .stamp{right:-30px;bottom:-40px;opacity:.12}
+.copy{background:var(--ink);text-align:center;font-size:10.5px;color:#888;padding:16px;position:relative;z-index:2}
+.copy span{margin:0 10px}
+</style>
+</head>
+<body>
+
+<div class="announce" id="ann">Golden dorado season 2027 now booking | <a href="#films">Watch now</a><button aria-label="Close" onclick="document.getElementById('ann').remove()">&times;</button></div>
+
+<header>
+  <div class="util">
+    <span><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>+591 3 555 0127 <span class="sep">|</span> 888-555-0144</span>
+    <span><svg viewBox="0 0 24 24"><path d="M12 21 10.6 19.7C5.4 15 2 12 2 8.4 2 5.4 4.4 3 7.4 3c1.7 0 3.4.8 4.6 2.1A6.1 6.1 0 0 1 16.6 3c3 0 5.4 2.4 5.4 5.4 0 3.6-3.4 6.6-8.6 11.3z"/></svg>Favorites</span>
+    <span><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4.5"/><path d="M3 21c0-5 4-8 9-8s9 3 9 8z"/></svg>Account</span>
+    <a class="book" href="#plan"><svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V9h14z"/></svg>Book</a>
+  </div>
+  <div class="mainbar">
+    <nav><a href="#lodges">Lodges</a><a href="#waters">Fishing</a></nav>
+    <form class="search" onsubmit="return false"><input placeholder="Search"><button aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="#1E1F1F" stroke-width="3"><circle cx="10" cy="10" r="7"/><path d="m15 15 6 6"/></svg></button></form>
+    <a class="menu" href="#"><i></i>Menu</a>
+  </div>
+  <a class="logo" href="#" aria-label="Río Dorado Lodge home">
+    <svg viewBox="0 0 190 132">
+      <text x="95" y="38" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="40" fill="#70EF2F" letter-spacing="1">RÍO DORADO</text>
+      <circle cx="95" cy="72" r="33" fill="#1E1F1F" stroke="#fff" stroke-width="3"/>
+      <circle cx="95" cy="72" r="26" fill="#3A5B3F"/>
+      <path d="M70 76c8-14 26-18 40-8l9-8-3 12 4 11-10-6c-14 10-32 6-40-1z" fill="#C3B95F" stroke="#1E1F1F" stroke-width="1.5"/>
+      <circle cx="78" cy="72" r="2" fill="#1E1F1F"/>
+      <path d="M86 66l4 6-4 6M95 64l4 8-4 8" stroke="#1E1F1F" stroke-width="1.3" fill="none"/>
+      <rect x="40" y="100" width="110" height="26" rx="6" fill="#1E1F1F" stroke="#fff" stroke-width="2.5"/>
+      <text x="95" y="119" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="14" fill="#70EF2F" letter-spacing="2.5">BOLIVIA</text>
+    </svg>
+  </a>
+  <a class="plan" id="plan" href="#lodges"><svg viewBox="0 0 24 24" fill="none" stroke="#1E1F1F" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>Plan your trip</a>
+</header>
+
+<section class="hero">
+  <div class="scene" data-scene="dorado"></div>
+  <div class="hero-inner">
+    <h1>Golden dorado in the<br>heart of the Bolivian<br>Amazon</h1>
+    <a class="btn" href="#films">Watch video <span class="dot"></span></a>
+  </div>
+</section>
+
+<section class="pad" id="lodges" style="padding-bottom:0">
+  <h2 class="sec-title">Your trip, your way</h2>
+  <div class="carousel"><div class="track" data-track>
+    <div class="card"><div class="scene" data-scene="lodge"></div><h3>Jungle Lodge Stays</h3></div>
+    <div class="card"><div class="scene" data-scene="angler"></div><h3>Family Trips</h3></div>
+    <div class="card"><div class="scene" data-scene="hold"></div><h3>Solo Angler Trips</h3></div>
+    <div class="card"><div class="scene" data-scene="andes"></div><h3>Andes Add-Ons</h3></div>
+    <div class="card"><div class="scene" data-scene="boat"></div><h3>Group Buyouts</h3></div>
+  </div></div>
+  <div class="ctrl"><div class="bar"><b></b></div><div class="arrows"><button aria-label="Previous" data-prev><svg viewBox="0 0 24 24" fill="none" stroke="#1E1F1F" stroke-width="3"><path d="m15 4-8 8 8 8"/></svg></button><button aria-label="Next" data-next><svg viewBox="0 0 24 24" fill="none" stroke="#1E1F1F" stroke-width="3"><path d="m9 4 8 8-8 8"/></svg></button></div></div>
+</section>
+
+<div class="band scene" data-scene="treeband"></div>
+
+<section class="pad wish" id="waters">
+  <h2 class="sec-title">This season's waters. Next season's legends.</h2>
+  <div class="tabsrow"><button class="tab on">Target species</button><button class="tab">New trips</button><a class="btn" href="#">View all</a></div>
+  <div class="carousel"><div class="track" data-track>
+    <div class="card"><div class="scene" data-scene="fishcard1"></div><h3>Golden Dorado</h3><p class="sub">The river tiger of the Sécure</p></div>
+    <div class="card"><div class="scene" data-scene="fishcard2"></div><h3>Pacú</h3><p class="sub">Sight fishing under the canopy</p></div>
+    <div class="card"><div class="scene" data-scene="fishcard3"></div><h3>Yatorana</h3><p class="sub">Fast, acrobatic, on a dry fly</p></div>
+    <div class="card"><div class="scene" data-scene="fishcard4"></div><h3>Peacock Bass</h3><p class="sub">Lagoons of the Beni</p></div>
+    <div class="card"><div class="scene" data-scene="fishcard2"></div><h3>Lake Titicaca Trout</h3><p class="sub">High altitude add-on</p></div>
+  </div></div>
+  <div class="ctrl"><div class="bar"><b></b></div><div class="arrows"><button aria-label="Previous" data-prev><svg viewBox="0 0 24 24" fill="none" stroke="#1E1F1F" stroke-width="3"><path d="m15 4-8 8 8 8"/></svg></button><button aria-label="Next" data-next><svg viewBox="0 0 24 24" fill="none" stroke="#1E1F1F" stroke-width="3"><path d="m9 4 8 8-8 8"/></svg></button></div></div>
+</section>
+
+<section class="pad locs">
+  <h2 class="sec-title">Our locations</h2>
+  <div class="locgrid">
+    <div class="loc"><div class="scene" data-scene="lodge2"></div><div class="t"><h3>Río Sécure Jungle Lodge</h3><a href="#">Info &amp; Directions</a></div></div>
+    <div class="loc"><div class="scene" data-scene="town"></div><div class="t"><h3>Santa Cruz Base Office</h3><a href="#">Info &amp; Directions</a></div></div>
+  </div>
+</section>
+
+<section class="pad">
+  <h2 class="sec-title">Meet our team of guides</h2>
+  <p class="intro">Born on these rivers, trained on every run. Our guides and Indigenous partners are ready to help you plan the fishing trip of a lifetime.</p>
+  <div class="team">
+    <div class="guide"><div class="av"><div class="scene" data-scene="av1"></div></div><h4>Mateo Rojas</h4><p>Head guide &amp; lodge<br>manager</p></div>
+    <div class="guide"><div class="av"><div class="scene" data-scene="av2"></div></div><h4>Lucía Vargas</h4><p>Trip planning director</p></div>
+    <div class="guide"><div class="av"><div class="scene" data-scene="av3"></div></div><h4>Joaquín Mamani</h4><p>Senior dorado<br>guide</p></div>
+    <div class="guide"><div class="av"><div class="scene" data-scene="av1"></div></div><h4>Diego Flores</h4><p>Lagoon &amp; peacock<br>bass guide</p></div>
+    <div class="guide"><div class="av"><div class="scene" data-scene="av2"></div></div><h4>Ana Quispe</h4><p>Andes program<br>director</p></div>
+  </div>
+  <div class="center"><a class="btn" href="#" style="padding:17px 44px">View all</a></div>
+</section>
+
+<section class="cons">
+  <div class="scene" data-scene="under"></div>
+  <div class="inner">
+    <div class="kick">Río Dorado community &amp; conservation</div>
+    <h2>Real impact, on the river<br>and beyond</h2>
+    <p>Every trip booked funds river patrols, catch and release research, and the Indigenous communities who protect these waters. Fishing here keeps the forest standing.</p>
+    <a class="btn" href="#">Learn more</a>
+  </div>
+</section>
+
+<section class="pad films" id="films">
+  <h2 class="sec-title">Río Dorado films</h2>
+  <p class="intro" style="max-width:760px">Experience a series of short films made by our guide team, following golden dorado from the Andean foothills to the deep jungle of the Bolivian Amazon.</p>
+  <div class="stage">
+    <div class="film l"><div class="scene" data-scene="hold"></div><h3>The Sécure</h3></div>
+    <div class="film c"><div class="scene" data-scene="dorado2"><span class="play"></span></div><h3>Tiger of the River</h3></div>
+    <div class="film r"><div class="scene" data-scene="angler"></div><h3>Beni Lagoons</h3></div>
+  </div>
+  <div class="ctrl"><div class="bar"><b style="left:25%"></b></div><div class="arrows"><button aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="#1E1F1F" stroke-width="3"><path d="m15 4-8 8 8 8"/></svg></button><button aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="#1E1F1F" stroke-width="3"><path d="m9 4 8 8-8 8"/></svg></button></div></div>
+</section>
+
+<section class="cta" data-grain>
+  <svg class="torn" viewBox="0 0 1440 40" preserveAspectRatio="none" data-torn></svg>
+  <svg class="stamp" style="left:-70px;top:30px" viewBox="0 0 200 200" data-stamp></svg>
+  <svg class="stamp" style="right:40px;top:150px;width:170px;opacity:.12" viewBox="0 0 200 200"><g fill="none" stroke="#2E2F2F" stroke-width="3"><circle cx="100" cy="100" r="80"/><circle cx="100" cy="100" r="66" stroke-width="1.5"/><path d="M100 14v20M100 166v20M14 100h20M166 100h20"/><path d="M100 40l14 60-14 60-14-60z" fill="#2E2F2F" fill-opacity=".4"/><path d="M40 100l60-14 60 14-60 14z"/></g><text x="100" y="30" text-anchor="middle" font-family="Anton,Impact" font-size="16" fill="#2E2F2F">N</text></svg>
+  <h2>We're the ones who can make<br>your next trip legendary</h2>
+</section>
+
+<footer>
+  <div class="fcta"><button class="ghost">Email sign up</button><button class="ghost">Sign up for texts</button></div>
+  <div class="fcontact">
+    <div class="ph">+591 3 555 0127 &nbsp;|&nbsp; 888-555-0144</div>
+    <div class="social">
+      <svg viewBox="0 0 24 24" ><path d="M14 8V6c0-.8.2-1.3 1.4-1.3H17V1.2C16.6 1.1 15.4 1 14.1 1 11.3 1 9.5 2.7 9.5 5.7V8H7v3.6h2.5V23H14V11.6h2.8L17.2 8z"/></svg>
+      <svg viewBox="0 0 24 24" ><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.6a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 2.8c3 0 3.4 0 4.5.1 3 .1 4.5 1.6 4.6 4.6.1 1.2.1 1.5.1 4.5s0 3.4-.1 4.5c-.1 3-1.6 4.5-4.6 4.6-1.2.1-1.5.1-4.5.1s-3.4 0-4.5-.1c-3-.1-4.5-1.6-4.6-4.6C2.8 15.4 2.8 15 2.8 12s0-3.4.1-4.5C3 4.5 4.5 3 7.5 2.9c1.1-.1 1.5-.1 4.5-.1zM12 1C9 1 8.6 1 7.4 1.1 3.4 1.3 1.3 3.4 1.1 7.4 1 8.6 1 9 1 12s0 3.4.1 4.6c.2 4 2.3 6.1 6.3 6.3 1.2.1 1.6.1 4.6.1s3.4 0 4.6-.1c4-.2 6.1-2.3 6.3-6.3.1-1.2.1-1.6.1-4.6s0-3.4-.1-4.6c-.2-4-2.3-6.1-6.3-6.3C15.4 1 15 1 12 1z"/></svg>
+      <svg viewBox="0 0 24 24" ><path d="M23 7.2a3 3 0 0 0-2-2C19 4.7 12 4.7 12 4.7s-7 0-9 .5a3 3 0 0 0-2 2C.5 9.2.5 12 .5 12s0 2.8.5 4.8a3 3 0 0 0 2 2c2 .5 9 .5 9 .5s7 0 9-.5a3 3 0 0 0 2-2c.5-2 .5-4.8.5-4.8s0-2.8-.5-4.8zM9.7 15.5v-7l6 3.5z"/></svg>
+      <svg viewBox="0 0 24 24" ><path d="M19.6 6.7a4.8 4.8 0 0 1-3.8-4.2V2h-3.4v13.6a2.9 2.9 0 1 1-2-2.7V9.4a6.3 6.3 0 1 0 5.4 6.2V8.7a8.2 8.2 0 0 0 4.8 1.5V6.8z"/></svg>
+    </div>
+  </div>
+  <div class="frule"></div>
+  <div class="fcols">
+    <div><h5>Plan your adventure</h5><a href="#">Golden Dorado Trips</a><a href="#">Peacock Bass Trips</a><a href="#">Pacú &amp; Yatorana</a><a href="#">Andes Trout Add-On</a><a href="#">Family Trips</a><a href="#">Solo Angler Trips</a><a href="#">Group Buyouts</a><a href="#">Gear List</a><a href="#">Recommended Flies</a><a href="#">Rods &amp; Lines</a><a href="#">Gift Cards</a></div>
+    <div><h5>Our waters</h5><a href="#">Río Sécure</a><a href="#">Río Pluma</a><a href="#">Río Itirizama</a><a href="#">Beni Lagoons</a><a href="#">Mamoré Basin</a><a href="#">Lake Titicaca</a><a href="#">Season Calendar</a></div>
+    <div><h5>Guest care</h5><a href="#">Flights &amp; Transfers</a><a href="#">Account Login</a><a href="#">Deposits &amp; Cancellations</a><a href="#">Rates &amp; Inclusions</a><a href="#">Visa &amp; Entry Info</a><a href="#">Travel Insurance</a><a href="#">Health &amp; Vaccines</a><a href="#">What to Pack</a><a href="#">Accessibility Statement</a></div>
+    <div><h5>Behind the lodge</h5><a href="#">Río Dorado Lodge</a><a href="#">Santa Cruz Base Office</a><a href="#">Community &amp; Conservation Fund</a><a href="#">Meet the Guides</a><a href="#">Careers</a></div>
+    <div><h5>Blogs, reports &amp; more</h5><a href="#">River Journal Blog</a><a href="#">Weekly Fishing Reports</a><a href="#">Lodge News &amp; Updates</a><a href="#">Río Dorado Podcast</a><a href="#">Guest Catch Gallery</a></div>
+  </div>
+  <svg class="stamp" viewBox="0 0 200 200" data-stamp data-light></svg>
+  <div class="copy">&copy; 2026 Río Dorado Lodge Bolivia <span>|</span> Terms &amp; Conditions <span>|</span> Privacy Policy</div>
+</footer>
+
+<script>
+(function(){
+function rnd(seed){return function(){seed=(seed*9301+49297)%233280;return seed/233280}}
+function ridge(r,y,amp,step,w,h){let d='M0 '+h+' L0 '+y;for(let x=0;x<=w+step;x+=step){d+=' Q'+(x+step/2)+' '+(y-amp*r()-amp*.3)+' '+(x+step)+' '+(y-amp*.5*r())}return d+' L'+w+' '+h+' Z'}
+function trees(r,y,amp,w,h,col){let d='M0 '+h+' L0 '+y;let x=0;while(x<w){const s=14+r()*26;d+=' q'+(s/2)+' '+(-amp*(.5+r()))+' '+s+' 0';x+=s}return '<path d="'+d+' L'+w+' '+h+' Z" fill="'+col+'"/>'}
+function fish(x,y,s,flip){const t=flip?' scale(-1,1)':'';return '<g transform="translate('+x+' '+y+') scale('+s+')'+t+'"><defs><linearGradient id="fg'+x+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a6a12"/><stop offset=".45" stop-color="#e8b923"/><stop offset="1" stop-color="#f6e08a"/></linearGradient></defs><path d="M-120 0 C-80 -48 40 -52 92 -10 L140 -46 L128 0 L140 46 L92 10 C40 52 -80 48 -120 0Z" fill="url(#fg'+x+')"/><path d="M-30 -40 L10 -62 L30 -38Z" fill="#c8961a"/><path d="M130 -40 L160 -60 L150 0 L160 60 L130 40Z" fill="#d85a1f" opacity=".85"/><circle cx="-88" cy="-6" r="7" fill="#1a1a1a"/><circle cx="-90" cy="-8" r="2" fill="#fff"/><path d="M-60 -30 Q-50 0 -60 30" stroke="#8a6a12" stroke-width="3" fill="none"/>'+Array.from({length:22},(_,i)=>'<circle cx="'+(-40+(i%11)*11)+'" cy="'+((i<11?-12:10)+((i*7)%9)-4)+'" r="1.8" fill="#5a3f08" opacity=".7"/>').join('')+'</g>'}
+function person(x,y,s,shirt,hat){return '<g transform="translate('+x+' '+y+') scale('+s+')"><path d="M-22 120 L-18 40 Q0 28 18 40 L22 120Z" fill="'+shirt+'"/><path d="M-18 120 L-20 210 L-4 210 L0 130 L4 210 L20 210 L18 120Z" fill="#3c4a3a"/><circle cx="0" cy="18" r="16" fill="#b07a55"/><path d="M-22 10 Q0 -14 22 10 L28 12 L-28 12Z" fill="'+hat+'"/><path d="M-6 26 q6 3 12 0" stroke="#7a4f35" stroke-width="2" fill="none"/></g>'}
+const S={
+ sky:(a,b)=>'<defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+a+'"/><stop offset="1" stop-color="'+b+'"/></linearGradient><linearGradient id="wt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5d6f55"/><stop offset="1" stop-color="#2c3a2c"/></linearGradient></defs><rect width="800" height="600" fill="url(#sk)"/>',
+ water:(y,c1,c2)=>'<rect y="'+y+'" width="800" height="'+(600-y)+'" fill="'+c1+'"/>'+Array.from({length:26},(_,i)=>'<rect x="'+((i*137)%800)+'" y="'+(y+12+(i*53)%(600-y-20))+'" width="'+(40+(i*31)%120)+'" height="2" fill="'+c2+'" opacity=".35"/>').join('')
+};
+const scenes={
+ jungle(r){return S.sky('#9fc3d6','#e6efe9')+'<path d="'+ridge(r,250,60,90,800,600)+'" fill="#7f9a86" opacity=".7"/>'+trees(r,330,50,800,600,'#2f4a2c')+trees(r,370,40,800,600,'#1f3420')+S.water(400,'#6b7b5c','#d7e3c9')},
+ dorado(r){return S.water(0,'#4f5b43','#c9d3b4')+'<ellipse cx="470" cy="420" rx="260" ry="60" fill="#e9e3cf" opacity=".25"/>'+fish(560,380,1.4)+'<path d="M420 330 q20 -40 60 -30 l10 40z" fill="#b07a55"/><path d="M690 320 q30 -30 60 0 l-20 40z" fill="#b07a55"/>'},
+ dorado2(r){return S.sky('#8fb3c8','#cfe0e3')+S.water(80,'#3f6b62','#e8f3ee')+fish(400,330,1.3,true)+'<path d="M0 0 h800 v120 q-200 40 -400 0 t-400 0z" fill="#dbeee9" opacity=".45"/>'},
+ lodge(r){return S.sky('#8eb1c9','#dfe9ea')+'<path d="'+ridge(r,230,90,110,800,600)+'" fill="#6f7f8c"/>'+trees(r,300,40,800,600,'#3b5a35')+'<g><rect x="200" y="250" width="380" height="110" fill="#7a4e2a"/><path d="M180 255 L390 170 L600 255Z" fill="#4a3020"/><path d="M300 250 L390 205 L480 250Z" fill="#5c3b24"/>'+Array.from({length:9},(_,i)=>'<rect x="'+(220+i*40)+'" y="280" width="22" height="34" fill="#f0c66a"/>').join('')+'<rect x="190" y="355" width="400" height="10" fill="#4a3020"/></g>'+'<rect y="360" width="800" height="240" fill="#5e8a3e"/>'+Array.from({length:40},(_,i)=>'<path d="M'+(i*20+r()*10)+' 600 q'+(r()*20-10)+' -'+(60+r()*120)+' '+(r()*30-15)+' -'+(90+r()*130)+'" stroke="#2f4a22" stroke-width="'+(3+r()*4)+'" fill="none"/>').join('')},
+ lodge2(r){return S.sky('#a7c7da','#eef3ec')+trees(r,200,60,800,600,'#2b4a2a')+'<rect x="120" y="230" width="560" height="200" fill="#8a5a30"/><path d="M90 240 L400 120 L710 240Z" fill="#3a2a1c"/>'+Array.from({length:12},(_,i)=>'<rect x="'+(140+i*44)+'" y="290" width="26" height="60" fill="#f3d58a"/>').join('')+'<rect x="100" y="420" width="600" height="18" fill="#5a3a20"/>'+Array.from({length:16},(_,i)=>'<rect x="'+(110+i*37)+'" y="380" width="5" height="45" fill="#f2efe6"/>').join('')+'<rect y="438" width="800" height="162" fill="#4f7a34"/>'},
+ town(r){return S.sky('#9ec3e0','#e6f0f4')+'<rect x="80" y="180" width="640" height="300" fill="#efe6d2"/><path d="M60 190 L400 90 L740 190Z" fill="#b2462e"/>'+Array.from({length:6},(_,i)=>'<rect x="'+(120+i*100)+'" y="240" width="56" height="90" fill="#2e2f2f"/><rect x="'+(124+i*100)+'" y="244" width="48" height="82" fill="#7aa0b4"/>').join('')+'<rect x="360" y="370" width="80" height="110" fill="#3a5b3f"/><rect y="480" width="800" height="120" fill="#a19b8e"/>'+trees(r,500,40,800,600,'#3b5a35')},
+ angler(r){return S.sky('#8fb6cf','#e8f0ef')+'<path d="'+ridge(r,200,70,100,800,600)+'" fill="#55704f"/>'+trees(r,250,55,800,600,'#2a4127')+S.water(280,'#6f8d8c','#eef6f2')+'<path d="M520 230 Q660 140 790 210" stroke="#fff" stroke-width="1.5" fill="none"/>'+person(470,310,1.1,'#70EF2F','#EF5D39')+'<path d="M480 340 L540 200" stroke="#222" stroke-width="3"/>'+person(330,350,.8,'#3d78b5','#e8e8e8')+'<ellipse cx="400" cy="520" rx="200" ry="20" fill="#fff" opacity=".2"/>'},
+ hold(r){return S.sky('#7fb6e0','#d9ecf5')+S.water(300,'#6fb5c0','#ffffff')+person(300,170,1.5,'#4fd2cf','#c0392b')+person(540,170,1.5,'#3fb7c4','#555')+fish(420,350,.95)},
+ andes(r){return S.sky('#6aa6d8','#e2eef6')+'<path d="M0 360 L120 160 L190 240 L300 90 L410 230 L500 140 L620 260 L700 170 L800 300 L800 600 L0 600Z" fill="#6c7380"/><path d="M270 140 L300 90 L330 140 L310 130 L300 150Z M480 170 L500 140 L520 172Z M690 185 L700 170 L712 188Z" fill="#fff"/>'+S.water(360,'#2f6f9a','#cfe6f5')+'<path d="M0 360 h800 v14 h-800z" fill="#8a8f6a"/>'},
+ treeband(r){return trees(r,240,60,800,600,'#3b5f30')+trees(r,275,45,800,600,'#2c4a26')+'<rect y="300" width="800" height="300" fill="#6e7558"/>'+Array.from({length:26},(_,i)=>'<rect x="'+((i*137)%800)+'" y="'+(310+(i*53)%280)+'" width="'+(40+(i*31)%120)+'" height="2" fill="#e2e6cf" opacity=".35"/>').join('')+'<g transform="translate(240 330) scale(.6)"><path d="M0 60 L260 60 L230 100 L30 100Z" fill="#eef0ea"/>'+person(70,-130,.75,'#70EF2F','#f2f2f2')+person(180,-80,.6,'#cfd8dc','#2e7bd0')+'<path d="M70 -60 L70 120" stroke="#ddd" stroke-width="4"/></g>'},
+ boat(r){return S.sky('#9ab8c9','#e9efe8')+trees(r,230,70,800,600,'#35562d')+trees(r,270,50,800,600,'#2a4525')+S.water(300,'#6e7558','#e2e6cf')+'<g transform="translate(140 330)"><path d="M0 60 L260 60 L230 100 L30 100Z" fill="#eef0ea"/><rect x="30" y="20" width="70" height="40" fill="none" stroke="#ccc" stroke-width="4"/>'+person(70,-130,.75,'#70EF2F','#f2f2f2')+person(180,-80,.6,'#cfd8dc','#2e7bd0')+'<path d="M70 -60 L70 120" stroke="#ddd" stroke-width="4"/></g>'},
+ fishcard4(r){return '<rect width="800" height="600" fill="#f0efe8"/><g transform="translate(400 390) scale(1.3)"><path d="M-150 0 C-110 -70 70 -70 120 -10 L170 -50 L158 0 L170 50 L120 10 C70 70 -110 70 -150 0Z" fill="#9aa83a"/><path d="M-150 0 C-110 50 70 50 120 10 L120 30 C70 70 -110 70 -150 0Z" fill="#EF5D39" opacity=".8"/>'+[-80,-30,20,70].map(x=>'<path d="M'+x+' -50 L'+(x+6)+' 30" stroke="#2E2F2F" stroke-width="10"/>').join('')+'<circle cx="100" cy="-4" r="14" fill="#2E2F2F"/><circle cx="100" cy="-4" r="8" fill="#EF5D39"/><circle cx="-118" cy="-8" r="8" fill="#c0392b"/></g><text x="400" y="110" text-anchor="middle" font-family="Anton,Impact" font-size="60" fill="#3A5B3F">CICHLA</text>'},
+ under(r){return '<defs><linearGradient id="uw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7f9a7a"/><stop offset=".3" stop-color="#4f6b48"/><stop offset="1" stop-color="#2c3524"/></linearGradient></defs><rect width="800" height="600" fill="url(#uw)"/><path d="M0 120 Q200 60 400 110 T800 90 L800 0 L0 0Z" fill="#cfe0d9" opacity=".5"/>'+Array.from({length:30},(_,i)=>'<ellipse cx="'+(r()*800)+'" cy="'+(440+r()*160)+'" rx="'+(40+r()*80)+'" ry="'+(20+r()*40)+'" fill="'+['#6b6b35','#4a5530','#7a6a3a','#3d4a2a'][i%4]+'"/>').join('')+fish(610,310,1.2,true)+Array.from({length:14},()=>'<circle cx="'+(430+r()*360)+'" cy="'+(195+r()*40)+'" r="'+(2+r()*5)+'" fill="#fff" opacity=".4"/>').join('')},
+ fishcard1(r){return '<rect width="800" height="600" fill="#f3efe7"/>'+fish(400,390,1.5)+'<text x="400" y="110" text-anchor="middle" font-family="Anton,Impact" font-size="60" fill="#3A5B3F">SALMINUS</text>'},
+ fishcard2(r){return '<rect width="800" height="600" fill="#eef0ea"/><g transform="translate(390 390) scale(1.05)"><path d="M120 0 L200 -80 L185 0 L200 80Z" fill="#4d5055"/><path d="M-40 -95 Q30 -150 80 -80Z" fill="#55585c"/><path d="M-20 92 Q40 140 90 80Z" fill="#EF5D39" opacity=".85"/><path d="M-170 10 C-160 -80 -60 -115 30 -105 C100 -95 140 -40 140 0 C140 40 100 95 30 105 C-60 115 -150 80 -170 10Z" fill="#6b6f74"/><path d="M-165 25 C-130 85 -40 108 30 100 C90 92 125 50 138 15 C80 60 -60 70 -165 25Z" fill="#EF5D39" opacity=".75"/><path d="M-110 -70 Q-80 0 -110 70" stroke="#4a4d51" stroke-width="5" fill="none"/><circle cx="-135" cy="-15" r="11" fill="#111"/><circle cx="-138" cy="-18" r="3" fill="#fff"/><path d="M-170 15 q8 6 16 2" stroke="#222" stroke-width="3" fill="none"/></g><text x="400" y="110" text-anchor="middle" font-family="Anton,Impact" font-size="60" fill="#2E2F2F">PIARACTUS</text>'},
+ fishcard3(r){return '<rect width="800" height="600" fill="#f1eee6"/><g transform="translate(400 390) scale(1.3)"><path d="M-10 -52 L20 -86 L50 -50Z" fill="#9aa19a"/><path d="M40 50 L70 76 L90 44Z" fill="#EF5D39" opacity=".8"/><path d="M110 -6 L180 -60 L164 0 L180 60 L110 6Z" fill="#8e958e"/><path d="M-150 0 C-110 -66 70 -66 122 -8 L122 8 C70 66 -110 66 -150 0Z" fill="#b9bfb7"/><path d="M-150 0 C-110 50 70 50 122 8 C70 30 -110 30 -150 0Z" fill="#e3e6e0"/><path d="M-104 -40 Q-84 0 -104 40" stroke="#8e958e" stroke-width="4" fill="none"/><path d="M-150 0 C-100 -30 80 -30 120 -4" stroke="#C3B95F" stroke-width="10" fill="none"/><circle cx="-118" cy="-6" r="8" fill="#111"/></g><text x="400" y="110" text-anchor="middle" font-family="Anton,Impact" font-size="60" fill="#3A5B3F">BRYCON</text>'},
+ av1(r){return S.sky('#9cc0d8','#e8efe9')+S.water(330,'#5f7c6f','#fff')+person(400,170,4.6,'#3A5B3F','#C3B95F')},
+ av2(r){return S.sky('#cfe3c8','#f0f2e9')+trees(r,330,40,800,600,'#4d7a3c')+person(400,170,4.6,'#EF5D39','#2E2F2F')},
+ av3(r){return S.sky('#8db8d6','#d8ebf3')+S.water(330,'#5a8aa0','#fff')+person(400,170,4.6,'#70EF2F','#f4f4f4')}
+};
+const cache={};
+document.querySelectorAll('[data-scene]').forEach((el,i)=>{
+  const k=el.dataset.scene;
+  if(!cache[k]){const r=rnd(k.length*97+k.charCodeAt(0));cache[k]='url("data:image/svg+xml;charset=utf-8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">'+scenes[k](r)+'</svg>')+'")'}
+  el.style.backgroundImage=cache[k];
+});
+document.querySelectorAll('[data-torn]').forEach(t=>{const r=rnd(7);let d='M0 0 H1440 V18';for(let x=1440;x>=0;x-=4+r()*6){d+=' L'+x.toFixed(1)+' '+(14+r()*10+Math.sin(x/60)*5+(r()<.08?r()*8:0)).toFixed(1)}t.innerHTML='<path d="'+d+' L0 0Z" fill="#fff"/><path d="'+d.replace('M0 0 H1440 V18','M1440 18')+'" fill="none" stroke="#d8d6d0" stroke-width="1.5" transform="translate(0 2)" opacity=".8"/>'});
+document.querySelectorAll('[data-grain]').forEach(g=>{g.style.backgroundImage='url("data:image/svg+xml;charset=utf-8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3"/><feColorMatrix values="0 0 0 0 .3  0 0 0 0 .3  0 0 0 0 .28  0 0 0 .09 0"/></filter><rect width="240" height="240" filter="url(#n)"/></svg>')+'")'});
+document.querySelectorAll('[data-stamp]').forEach(s=>{
+  const c=s.hasAttribute('data-light')?'#ffffff':'#2E2F2F';
+  s.innerHTML='<defs><path id="cp'+(s.hasAttribute('data-light')?1:0)+'" d="M100 100 m-78 0 a78 78 0 1 1 156 0 a78 78 0 1 1 -156 0"/></defs><circle cx="100" cy="100" r="95" fill="none" stroke="'+c+'" stroke-width="5"/><circle cx="100" cy="100" r="58" fill="none" stroke="'+c+'" stroke-width="3"/><text font-family="Anton,Impact" font-size="24" fill="'+c+'" letter-spacing="3"><textPath href="#cp'+(s.hasAttribute('data-light')?1:0)+'">FISH THE AMAZON · LIVE THE RIVER ·</textPath></text><path d="M62 104c10-16 34-20 52-9l12-10-4 15 5 14-13-8c-18 12-42 7-52-2z" fill="'+c+'"/>';
+});
+document.querySelectorAll('section').forEach(sec=>{
+  const t=sec.querySelector('[data-track]');if(!t)return;
+  let i=0;const n=t.children.length,b=sec.querySelector('.bar b');
+  const go=d=>{i=Math.max(0,Math.min(n-3,i+d));t.style.transform='translateX('+(-i*439)+'px)';b.style.left=(i/(n-3)*75)+'%';sec.querySelector('[data-prev]').style.opacity=i?1:.4};
+  sec.querySelector('[data-next]').onclick=()=>go(1);sec.querySelector('[data-prev]').onclick=()=>go(-1);
+});
+})();
+</script>
+</body>
+</html>
